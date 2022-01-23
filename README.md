@@ -1,21 +1,12 @@
-# openGL playground
-For playing around with openGL in C++.
+# Bounded Compute Particles
+A minimal-ish project that sets up particles that are tweaked in a compute shader. See (My blog here)
 
-The starter code is lifted from https://github.com/bartvbl/TDT4230-Assignment-1
+Some of the code is lifted from https://github.com/bartvbl/TDT4230-Assignment-1
  
 ![The state of it right now](the-state-of-it.png)
-
-## TODO:
-- [x] Visualize bounding box as a wireframe
-- [ ] Visualize particles as tetrahedrons
-- [ ] Visualize particles as arbitrary meshes
-- [ ] Come up with a good way to structure the program
-- [ ] Implement boids behaviour in particles
-- [ ] Implement naive flocking
-
 ## Project structure
 
-`main.cpp` initializes the window, `program.cpp` sets up openGL settings and `gameLogic.cpp` handles input initialization and updating. Finally, the particles (as it stands) are initialized in `boids/particle.cpp`. It goes a bit deep but I just wanted to see if I could get my particle code to work with the initial code. I have really only tweaked `gameLogic.cpp` and `boids/particle.cpp`, the rest is as it was when I started out.
+`main.cpp` initializes the window, `program.cpp` is where everything is initialized and updated/rendered. Finally, the particle system is implemented in `particles/particleSystem.cpp`. It goes a bit deep but I just wanted to see if I could get my particle code to work with the initial code.
 ## Building:
 1. `git clone --recursive https://github.com/Embla-Flatlandsmo/openGL-playground.git`
 2. `cd openGL-playground`

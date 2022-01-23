@@ -73,19 +73,10 @@ void main() {
     } else if ((p.z > boundingBoxHigh.z) && (v.z >= 0.0)) {
         vp.z *= -1;
     }
-
-    // if (p.x > boundingBoxHigh.x || p.x < boundingBoxLow.x) {
-    //     v.x = -1;
-    // }
-    // if (p.y > boundingBoxHigh.y || p.y < boundingBoxLow.y) {
-    //     v.y = -1;
-    // }
-    // if (p.z > boundingBoxHigh.z || p.z < boundingBoxLow.z) {
-    //     v.z = -1;
-    // }
+    
     vec3 pp = p + vp*DT;
     
     Positions[gid].xyz = pp;
     Velocities[gid].xyz = vp;
-    Colors[gid].xyz = vp;
+    Colors[gid].xyz = abs(normalize(vp));
 }

@@ -1,6 +1,9 @@
 #include <chrono>
 #include "timeutils.h"
-
+/**
+ * Lifted from https://github.com/bartvbl/TDT4230-Assignment-1
+ * 
+ */
 // In order to be able to calculate when the getTimeDeltaSeconds() function was last called, we need to know the point in time when that happened. This requires us to keep hold of that point in time.
 // We initialise this value to the time at the start of the program.
 static std::chrono::steady_clock::time_point _previousTimePoint = std::chrono::steady_clock::now();

@@ -2,7 +2,7 @@
 # Specify minimum CMake version and project name
 #
 cmake_minimum_required (VERSION 3.0)
-project (glowbox)
+project (minimal-bounded-particles)
 
 #
 # Set python 3 name
@@ -34,19 +34,6 @@ option (GLFW_BUILD_EXAMPLES OFF)
 option (GLFW_BUILD_TESTS OFF)
 add_subdirectory (lib/glfw)
 
-
-# SFML options
-# We only need sound for this project, so everything else can be turned off
-option (SFML_BUILD_GRAPHICS OFF)
-option (SFML_BUILD_WINDOW OFF)
-option (SFML_BUILD_NETWORK OFF)
-add_subdirectory(lib/SFML)
-
-#
-# Add FMT
-#
-add_subdirectory (lib/fmt)
-
 #
 # GLAD
 #
@@ -74,18 +61,13 @@ endif()
 include_directories (src/
                      lib/glad/include/
                      lib/glfw/include/
-                     lib/lodepng/
-                     lib/glm/
-                     lib/stb/
-                     lib/arrrgh/
-                     lib/SFML/include/)
+                     lib/glm/)
 
 
 #
 # Add files
 #
-file (GLOB         VENDORS_SOURCES lib/glad/src/glad.c
-								   lib/lodepng/lodepng.cpp)
+file (GLOB         VENDORS_SOURCES lib/glad/src/glad.c)
 file (GLOB_RECURSE PROJECT_HEADERS src/*.hpp
                                    src/*.h)
 file (GLOB_RECURSE PROJECT_SOURCES src/*.cpp
@@ -100,6 +82,8 @@ file (GLOB         PROJECT_CONFIGS CMakeLists.txt
                                    README.rst
                                   .gitignore
                                   .gitmodules)
+
+file(COPY res DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 
 #
 # Organizing files
@@ -119,10 +103,8 @@ add_executable (${PROJECT_NAME} ${PROJECT_SOURCES} ${PROJECT_HEADERS}
                                 ${VENDORS_SOURCES})
 target_link_libraries (${PROJECT_NAME}
                        glfw
-                       sfml-audio
-                       fmt::fmt
                        ${GLFW_LIBRARIES}
                        ${GLAD_LIBRARIES})
 
-file(COPY res DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+
                        

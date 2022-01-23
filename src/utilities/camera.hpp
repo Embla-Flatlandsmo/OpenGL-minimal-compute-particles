@@ -1,3 +1,8 @@
+/**
+ * Lifted from https://github.com/bartvbl/TDT4230-Assignment-1
+ * with some minor tweaks of my own
+ */
+
 #ifndef CAMERA_HPP
 #define CAMERA_HPP
 #pragma once
@@ -22,7 +27,6 @@ namespace Gloom
             cPosition         = position;
             cMovementSpeed    = movementSpeed;
             cMouseSensitivity = mouseSensitivity;
-
             // Set up the initial view matrix
             updateViewMatrix();
         }
@@ -185,7 +189,7 @@ namespace Gloom
         // Variables used for bookkeeping
         GLboolean resetMouse     = true;
         GLboolean isMousePressed = false;
-        GLboolean keysInUse[512];
+        GLboolean keysInUse[512] = {false};
 
         // Last cursor position
         GLfloat lastXPos = 0.0f;

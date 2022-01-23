@@ -11,7 +11,9 @@
 #include <memory>
 #include <string>
 
-
+/**
+ * Lifted from https://github.com/bartvbl/TDT4230-Assignment-1
+ */
 namespace Gloom
 {
     class Shader

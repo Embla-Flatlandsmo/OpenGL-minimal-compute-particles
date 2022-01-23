@@ -11,12 +11,7 @@
 
 
 // Main OpenGL program
-void runProgram(GLFWwindow* window, CommandLineOptions options);
-
-
-// Function for handling keypresses
-void handleKeyboardInput(GLFWwindow* window);
-
+void runProgram(GLFWwindow* window);
 
 // Checks for whether an OpenGL error occurred. If one did,
 // it prints out the error type and ID
